@@ -10,13 +10,17 @@ namespace StaticDataAndMembers
     {
         //Данные уровня экземпляра.
         public double currBalance;
+        public static double currInterestRate = 0.04; //Это статические данные
         //Cтатический элемент данных.
-        public static double currInterestRate = 0.04;
         public SavingsAccount(double balance)
         {
-            currBalance = balance;
-        }  
-        
+        currBalance = balance;
+        }
+        static SavingsAccount()
+        {
+            Console.WriteLine("In static ctor\n");
+            currInterestRate = 0.04;
+        }
         public static void SetInterestRate(double newRate)
         {
             currInterestRate = newRate;
